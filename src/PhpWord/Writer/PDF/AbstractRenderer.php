@@ -73,14 +73,15 @@ abstract class AbstractRenderer extends HTML
         9 => 'A4', // (210 mm by 297 mm)
     ];
 
+    protected $rendererConfigs;
     /**
      * Create new instance.
      *
      * @param PhpWord $phpWord PhpWord object
      */
-    public function __construct(PhpWord $phpWord)
+    public function __construct(PhpWord $phpWord, array $rendererConfigs=[])
     {
-        parent::__construct($phpWord);
+        parent::__construct($phpWord, $rendererConfigs);
         if ($this->includeFile != null) {
             $includeFile = Settings::getPdfRendererPath() . '/' . $this->includeFile;
             if (file_exists($includeFile)) {
@@ -93,6 +94,7 @@ abstract class AbstractRenderer extends HTML
                 // @codeCoverageIgnoreEnd
             }
         }
+        $this->rendererConfigs = $rendererConfigs;
     }
 
     /**

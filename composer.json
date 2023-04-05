@@ -92,5 +92,6 @@
         "psr-4": {
             "PhpOffice\\PhpWordTests\\": "tests/PhpWordTests"
         }
-    }
+    },
+    "version": "0.0.1"
 }
